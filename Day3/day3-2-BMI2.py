@@ -18,4 +18,4 @@ else:
     result = "you are clinically obese"
 
 
-print(f"Your BMI is {round(bmi)}, {result}.")
+print(f"Your BMI is {round(bmi)}, {result}.") 
