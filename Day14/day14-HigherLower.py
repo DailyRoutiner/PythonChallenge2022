@@ -31,7 +31,8 @@ def game():
         is_correct = check_answer(user_answer, a_follower, b_follower)
 
         # Clear display
-
+        # clear()
+         
         # Give feedback on their guess and score keeping
         if is_correct:
             score = score+1
