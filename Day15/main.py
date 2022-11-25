@@ -46,8 +46,7 @@ def checkResources(ingredient):
         if ingredient[item] > resources[item]:
             print(f"Sorry there is not enough {item}.")
             return False
-        else:
-            return True
+    return True
 
 
 #  Process coins.
