@@ -1,7 +1,7 @@
 from turtle import Turtle
 
 MOVE_DISTANCE = 20
-STARTING_POSITION = [(0, 0), (-20, 0), (-40, 0)]
+STARTING_POSITION = [(0, 0), (-20, 0), (-40, 0)]  # (x, y)
 UP = 90
 DOWN = 270
 LEFT = 180
@@ -29,14 +29,17 @@ class Snake:
     def extend(self):
         self.add_segment(self.segments[-1].position())
 
+    # Important part
     def move(self):
         # turn snake
         for seg_num in range(len(self.segments)-1, 0, -1):
+            # Get from last second position
             new_x = self.segments[seg_num - 1].xcor()
             new_y = self.segments[seg_num - 1].ycor()
+            # Last segment moves to second position
             self.segments[seg_num].goto(new_x, new_y)
 
-        self.segments[0].forward(MOVE_DISTANCE)
+        self.head.forward(MOVE_DISTANCE)
 
     def up(self):
         if self.head.heading() != DOWN:
