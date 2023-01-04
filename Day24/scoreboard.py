@@ -28,11 +28,11 @@ class Scoreboard(Turtle):
         self.update_scoreboard()
 
     def save_data(self, score):
-        with open("data.txt", mode="w") as file:
+        with open("/Users/jun/Desktop/data.txt", mode="w") as file:
             file.write(str(score))
 
     def open_data(self):
-        with open("data.txt") as file:
+        with open("/Users/jun/Desktop/data.txt") as file:
             return int(file.read())
 
     # def game_over(self):

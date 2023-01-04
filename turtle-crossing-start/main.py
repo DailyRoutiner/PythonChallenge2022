@@ -11,6 +11,7 @@ screen.tracer(0)
 player = Player()
 car_manager = CarManager()
 scoreboard = Scoreboard()
+# key binding
 screen.listen()
 screen.onkey(player.move, "Up")
 
