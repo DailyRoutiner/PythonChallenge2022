@@ -1,4 +1,4 @@
-#TODO: Create a letter using starting_letter.txt 
+#TODO: Create a letter using starting_letter.txt
 #for each name in invited_names.txt
 #Replace the [name] placeholder with the actual name.
 #Save the letters in the folder "ReadyToSend".
@@ -16,6 +16,6 @@ with open("./Input/Letters/starting_letter.txt", mode="r") as file:
     message = file.read()
     for name in name_list:
         invitation = message.replace("[name]", name)
-        with open(f"./Output/ReadyToSend/letter_to_{name}", mode="w") as new_file:
+        with open(f"./Output/ReadyToSend/letter_to_{name}", mode="w+") as new_file:
             new_file.write(invitation)
 
