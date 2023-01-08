@@ -10,8 +10,9 @@ screen.addshape(image)
 
 turtle.shape(image)
 data = pandas.read_csv("./50_states.csv")
-country_list = data.state.to_list()
+all_states = data.state.to_list()
 guess_list = []
+
 
 # Convert the guess to Title case
 # screen.textinput(title=f"{count}/50 States Correct",  prompt="What's another state's name?")
@@ -30,10 +31,25 @@ guess_list = []
 while len(guess_list) < 50:
     answer_state = screen.textinput(title=f"{len(guess_list)}/50 States Correct", prompt="What's another state's name?").title()
 
-    if answer_state == "exit":
+    # if answer_state == "Exit":
+    #     missing_states = []
+    #     for state in all_states:
+    #         if state not in guess_list:
+    #             missing_states.append(state)
+    #     # states_to_learn.csv
+    #     df = pandas.DataFrame(missing_states, columns=["states"])
+    #     df.to_csv("states_to_learn.csv")
+    #     break
+
+    # List comprehension
+    if answer_state == "Exit":
+        missing_states = [state for state in all_states if state not in guess_list]
+        df = pandas.DataFrame(missing_states, columns=["states"])
+        df.to_csv("states_to_learn.csv")
         break
+
     # Check if the guess is among the 50 states
-    if answer_state in country_list:
+    if answer_state in all_states:
         t = turtle.Turtle()
         t.penup()
         t.hideturtle()
@@ -41,3 +57,4 @@ while len(guess_list) < 50:
         t.goto(int(state_data.x), int(state_data.y))
         t.write(answer_state, font=FONT)
         guess_list.append(answer_state)
+
