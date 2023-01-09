@@ -1,5 +1,3 @@
-
-
 with open("./file1.txt") as file1:
     numbers = file1.readlines()
     list1 = [int(num) for num in numbers]
