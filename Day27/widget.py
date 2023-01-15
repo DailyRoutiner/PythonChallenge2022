@@ -60,6 +60,27 @@ checkbutton = Checkbutton(text="Is On?", variable=checked_state, command=checkbu
 checked_state.get()
 checkbutton.pack()
 
+# Radio button
+def radio_used():
+    print(radio_state.get())
+
+radio_state = IntVar()
+radiobutton1 = Radiobutton(text="Option1", value=1, variable=radio_state, command=radio_used)
+radiobutton2 = Radiobutton(text="Option2", value=2, variable=radio_state, command=radio_used)
+radiobutton1.pack()
+radiobutton2.pack()
+
+
+# Listbox
+def listbox_used(event):
+    # Gets current selection from listbox
+    print(listbox.get(listbox.curselection()))
+listbox = Listbox(height=4)
+fruits = ["Apple", "Pear", "Banana", "Orange"]
+for item in fruits:
+    listbox.insert(fruits.index(item), item)
+listbox.bind("<<ListboxSelect>>", listbox_used)
+listbox.pack()
 
 window.mainloop()
 
