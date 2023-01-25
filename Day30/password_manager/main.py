@@ -67,21 +67,22 @@ def generate_password():
     pyperclip.copy(password)
 
 
-def search():
+def search_password():
     website = website_entry.get()
 
     if len(website) == 0:
         messagebox.showwarning(title="Empty field", message="Not allowed empty field.")
     else:
-        with open(file="data.json", mode="r") as file_data:
-            json_data = json.load(file_data)
-            try:
-                search = json_data[website]
-            except KeyError:
-                messagebox.showwarning(title=search, message="Not found key")
-            else:
-                messagebox.showinfo(title=search, message=f"Email: {search['email']} \n Password: {search['password']}")
-                print(search)
+        try:
+            with open(file="data.json", mode="r") as file_data:
+                json_data = json.load(file_data)
+                data = json_data[website]
+        except FileNotFoundError:
+            messagebox.showinfo(title="Error", message="No Data File found")
+        except KeyError:
+            messagebox.showwarning(title="Not exist", message="Not found data")
+        else:
+            messagebox.showinfo(title=data, message=f"Email: {data['email']} \n Password: {data['password']}")
 
 
 # UI
@@ -109,7 +110,7 @@ email_entry.insert(0, "abc@gmail.com")
 password_entry = Entry(width=21)
 password_entry.grid(column=1, row=3)
 
-Button(text="Search", width=13,  command=search).grid(column=2, row=1)
+Button(text="Search", width=13,  command=search_password).grid(column=2, row=1)
 Button(text="Generate Password", command=generate_password).grid(column=2, row=3)
 Button(text="Add", width=36, command=save).grid(column=1, row=4, columnspan=2)
 
