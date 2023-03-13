@@ -8,7 +8,7 @@ def get_quote():
     response.raise_for_status()
     data = response.json()
     #canvas.configure(quote_text, text=data["quote"])
-     = data["quote"]
+    canvas.itemconfig(quote_text, text=data["quote"])
 
 window = Tk()
 window.title("Kanye Says...")
