@@ -6,9 +6,8 @@ class Solution:
             count[value] = 1 + count.get(value, 0)
 
         # 어떻게 많은 값 순으로 정렬할까?
-        sorted_list = sorted(count.items(), key=lambda x: x[1], reverse=True)
-        print(sorted_list)
-        return list(count.keys())[:k]
+        sorted_list = dict(sorted(count.items(), key=lambda x: x[1], reverse=True))
+        return list(sorted_list.keys())[:k]
 
 sol = Solution()
 
