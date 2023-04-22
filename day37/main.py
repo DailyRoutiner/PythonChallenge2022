@@ -44,3 +44,6 @@ pixel_config = {
 
 response = requests.post(url=pixel_endpoint, json=pixel_config, headers=graph_header)
 print(response.text)
+
+update_endpoint = f"{user_endpoint}/{USERNAME}/graphs/{GRAPH_ID}"
+
