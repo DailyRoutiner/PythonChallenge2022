@@ -1,0 +1,55 @@
+body {
+    margin : 0;
+}
+
+h1 {
+    margin-top: 0;
+}
+
+.top {
+    background-color: aqua;
+    width: 200px;
+    height: 200px;
+    border: solid 10px;
+    padding: 20px;
+}
+.middle {
+    background-color: blueviolet;
+    -webkit-margin-start: 260px;
+    width: 200px;
+    height: 200px;
+    border: solid 20px;
+}
+
+.bottom {
+    background-color: blue;
+    -webkit-margin-start: 500px;
+    width: 200px;
+    height: 200px;
+    border: solid 10px;
+}
+
+.red {
+    height: 100px;
+    width: 100px;
+    background-color: red;
+    position: relative;
+    display: inline-block;
+    left: 200px;
+}
+.yellow {
+    height: 100px;
+    width: 100px;
+    background-color: yellow;
+    position: relative;
+    display: inline-block;
+    right: 100px;
+}
+.blue {
+    height: 100px;
+    width: 100px;
+    background-color: blue;
+    position: relative;
+    display: inline-block;
+    right: 100px;
+}
